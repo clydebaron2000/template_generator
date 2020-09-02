@@ -1,175 +1,86 @@
-# Unit 10 OOP Homework: Template Engine - Employee Summary
+# Template Generator - Employee Summary
 
-One of the most important aspects of programming is writing code that is readable, reliable, and maintainable. Oftentimes, *how* we design our code is just as important as the code itself. In this homework assignment, your challenge is to build a Node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person. Since testing is a key piece in making code maintainable, you will also be ensuring that all unit tests pass.
+## Description
+---
+[![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+![node.js](https://img.shields.io/badge/Dependencies-node.js-green)
 
-## Instructions
+![chalk](https://img.shields.io/badge/npm-chalk-blue)
+![inquirer](https://img.shields.io/badge/npm-inquirer-blue)
+![jest](https://img.shields.io/badge/npm-jest-blue)
 
-You will build a software engineering team generator command line application. The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. __This assignment must also pass all unit tests__. When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user. Following the [common templates for user stories](https://en.wikipedia.org/wiki/User_story#Common_templates), we can frame this challenge as follows:
+A CLI program that turns test user input about information about a software engineering team into an html document powered by Bootstrap. Team members on html page are delinated as with serparate cards on the page in the designated template spot found in `templates/main.html`.
 
+---
+## Table of Contents 
+
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [Credits](#Credits)
+* [License](#License)
+* [Tests](#Tests)
+* [Questions?](#Questions?)
+
+---
+## Installation
+
+Upon downloading the project files, open the command line and navigate to the directory the project is in. Once there, go to the `Develop` and type the command:
 ```
-As a manager
-I want to generate a webpage that displays my team's basic info
-so that I have quick access to emails and GitHub profiles
+npm install
 ```
-
-How do you deliver this? Here are some guidelines:
-
-* Use the [Inquirer npm package](https://github.com/SBoudrias/Inquirer.js/) to prompt the user for their email, id, and specific information based on their role with the company. For instance, an intern may provide their school, whereas an engineer may provide their GitHub username.
-
-* Your app will run as a Node CLI to gather information about each employee.
-
-* Below is an example of what your application may look like. Remember, the styling is completely up to you so try to make it unique.
-
-![Employee Summary 1](./Assets/10-OOP-homework-demo-1.png)
-![Employee Summary 2](./Assets/10-OOP-homework-demo-2.png)
-
-In the `Develop` folder, there is a `package.json`, so make sure to `npm install`.
-
-The dependencies are, [jest](https://jestjs.io/) for running the provided tests, and [inquirer](https://www.npmjs.com/package/inquirer) for collecting input from the user.
-
-There are also unit tests to help you build the classes necessary.
-
-It is recommended that you follow this workflow:
-
-1. Run tests
-2. Create or update classes to pass a single test case
-3. Repeat
-
-🎗 Remember, you can run the tests at any time with `npm run test`
-
-It is recommended that you start with a directory structure that looks like this:
-
+To install all dependancies. If you prefer, install the dependancies independantly as follows:
+- install `chalk` for design and reading ease
 ```
-lib/           // classes and helper code
-output/        // rendered output
-templates/     // HTML template(s)
-test/          // jest tests
-  Employee.test.js
-  Engineer.test.js
-  Intern.test.js
-  Manager.test.js
-app.js         // Runs the application
+npm install chalk
+```
+-install `supports-color` for testing if your CLI supports coloring
+```
+npm install supports-color
+```
+- install `inquirer` for user input
+```
+npm install inquirer
+```
+- (optional) install jest for testing
+```
+npm jest --save-dev
 ```
 
-### Hints
+## Usage
 
-* Create multiple HTML templates for each type of user. For example, you could use the following templates:
+This project's purpose is to showcase CLI, js, and HTML skillset of the user and is not intended for commercial use of any kind. Users are permitted to use the code for personal use.
 
-  * `main.html`
+To run the program navigate in the command line to the `Develop` directory and with `node.js` installed, run the following command:
+```
+node app.js
+```
 
-  * `engineer.html`
-  
-  * `intern.html`
-  
-  * `manager.html`
+## License
 
-* You will want to make your methods as pure as possible. This means try to make your methods simple so that they are easier to test.
+© 2020 [Clyde Baron Rapinan](https://github.com/clydebaron2000). Under the [MIT](https://opensource.org/licenses/MIT) license.
 
-* The different employee types should all inherit some methods and properties from a base class of `Employee`.
+## Contributing
 
-* In your HTML template files, you may want to add a placeholder character that helps your program identify where the dynamic markup begins and ends.
+All users can contribute to this project.
 
-## Minimum Requirements
+## Tests
 
-* Functional application.
+This project's tests are powered by `jest`. To see installation instructions for `jest` refer to the Install section. 
 
-* GitHub repository with a unique name and a README describing the project.
+To run all tests to ensure employee classes are working, navigate to the `Develop` directory and type in the command:
+```
+npm test
+```
+To ensure that the tests run with the highest verbosity and speed, ensure in the `package.json` File that the 'sripts'>'test' attribute has the following:
+```
+"jest --verbose --runInBand"
+```
+Jest's current version runs into many performance issues. To rollback on `jest` version check out [this article.](https://itnext.io/how-to-make-your-sluggish-jest-v23-tests-go-faster-1d4f3388bcdd)
 
-* User can use the CLI to generate an HTML page that displays information about their team.
+## Questions?
 
-* All tests must pass.
+Have questions about my project? [Email me](mailto:clydebaron2000@gmail.com) at clydebaron2000@gmail.com.
 
-### Classes
-The project must have the these classes: `Employee`, `Manager`, `Engineer`,
-`Intern`. The tests for these classes in the `tests` directory must all pass.
-
-The first class is an `Employee` parent class with the following properties and
-methods:
-
-  * name
-  * id
-  * email
-  * getName()
-  * getId()
-  * getEmail()
-  * getRole() // Returns 'Employee'
-
-The other three classes will extend `Employee`. 
-
-In addition to `Employee`'s properties and methods, `Manager` will also have:
-
-  * officeNumber
-
-  * getRole() // Overridden to return 'Manager'
-
-In addition to `Employee`'s properties and methods, `Engineer` will also have:
-
-  * github  // GitHub username
-
-  * getGithub()
-
-  * getRole() // Overridden to return 'Engineer'
-
-In addition to `Employee`'s properties and methods, `Intern` will also have:
-
-  * school 
-
-  * getSchool()
-
-  * getRole() // Overridden to return 'Intern'
-
-### User input
-
-The project must prompt the user to build an engineering team. An engineering
-team consists of a manager, and any number of engineers and interns.
-
-### Roster output
-
-The project must generate a `team.html` page in the `output` directory, that displays a nicely formatted team roster. Each team member should display the following in no particular order:
-
-  * Name
-
-  * Role
-
-  * ID
-
-  * Role-specific property (School, link to GitHub profile, or office number)
-
-## Bonus
-
-*__ Use validation to ensure that the information provided is in the proper expected format.__
-
-* Add the application to your portfolio.
-
-## Commit Early and Often
-
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
-
-* Your commit history is a signal to employers that you are actively working on projects and learning new skills.
-
-* Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
-
-Follow these guidelines for committing:
-
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
-
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
-
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
-
-* Test your application before you commit to ensure functionality at every step in the development process.
-
-We would like you to have well over 200 commits by graduation, so commit early and often!
-
-
-## Submission on BCS
-
-You are required to submit the following:
-
-* The URL of the GitHub repository
-
-* A video demonstrating the entirety of the app's functionality 
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+---
+Check out my other projects [here!](https://github.com/clydebaron2000)
