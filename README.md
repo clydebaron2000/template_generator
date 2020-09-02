@@ -1,7 +1,7 @@
 # Template Generator - Employee Summary
 
 ## Description
----
+
 [![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![node.js](https://img.shields.io/badge/Dependencies-node.js-green)
