@@ -28,9 +28,9 @@ function stringToConstructor(string) {
 // run this block immediately, under async
 (async() => {
     try {
-        var employeeArray = [];
+        let employeeArray = [];
         //user must input manager
-        var employeeTypes = ['manager'];
+        let employeeTypes = ['manager'];
         //for everything in the list
         for (const employeeType of employeeTypes) {
             //prompt
