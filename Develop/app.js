@@ -59,6 +59,6 @@ function stringToConstructor(string) {
         const outputPath = path.join(OUTPUT_DIR, "team.html");
         //render the html and write it to output dir        
         writeFileAsync(outputPath, render(employeeArray));
-        console.log(chalk `{green.bold Success! Your file has been rendered in teh output directory as 'team.html'}`);
+        console.log(chalk `{green.bold Success! Your file has been rendered in the output directory as 'team.html'}`);
     } catch (err) { console.log(err) };
 })();

@@ -12,6 +12,7 @@
 
 A CLI program that turns test user input about information about a software engineering team into an html document powered by Bootstrap. Team members on html page are delinated as with serparate cards on the page in the designated template spot found in `templates/main.html`.
 
+<img src="./gif/program.gif">
 ---
 ## Table of Contents 
 
